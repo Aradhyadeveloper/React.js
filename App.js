@@ -1,98 +1,53 @@
-// import React from "react";
-// //import ReactDom from "react-dom";
+//FIRST WE CREATE COMPONENTS FOLDER AND THE UNDER CREATE FILE Layout.js ,LgRegistration.js
+//Login.js,Registration.js,TotalLists.js,Updatedt.js and the create under node file server.js
 
-// const NumberContext = React.createContext();
-// function App(){
-//   return(
-//     <NumberContext.Provider value={"aradhya kumar gautam ji"}>
-//     <div>
-//       <Display/>
-//     </div>
-//     </NumberContext.Provider>
+import logo from './logo.svg';
+import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import LgRegistration from "./components/LgRegistration";
+import Login from "./components/Login";
+import Registration from "./components/Registration";
+import TotalList from "./components/TotalList";
+import Updatedt from "./components/Updatedt";
 
-  
+function App() {
 
-//   );
-// }
+    return (
+        <div className="App">
+            <header className="App-header">
+                {/* <img src={logo} className="App-logo" alt="logo" /> */}
+                <p>
+                    Edit <code>src/App.js</code> and save to reload.
+                </p>
+                <a
+                    className="App-link"
+                    href="https://reactjs.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Learn React
+                </a>
+            </header>
+            <div>
+                <BrowserRouter>
+                    <Routes>
 
-// function Display(){
-//   return(
-//     <NumberContext.Consumer>
-//     {value => <div> the answer is {value}.</div>}
-//     </NumberContext.Consumer>
+                        <Route path="/" element={<Layout />} >
 
-     
-//   );
-// }
+                            <Route index element={<Registration />} />
+                            <Route path="/registration" element={<Registration />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/totalList" element={<TotalList />} />
+                            <Route path="/LgRegistration" element={<LgRegistration />} />
+                            <Route path="/updatedt/:user_id" element={<Updatedt />} />
 
-// export default App;
+                        </Route>
 
-
-
-
-
-
-
-
-// import React from 'react'
-
-// const NumberContext=React.createContext()
-
-// function App(){
-//   return(
-//   <NumberContext.Provider value={'aradhya 12354 from'}>
-//     <div>
-//       <Display/>
-//     </div>
-//   </NumberContext.Provider>
-//   );
-// }
-
-// function Display(){
-//   return(
-//   <NumberContext.Consumer>
-//     {value => <div><h1>aradhya is mern stack developer {value}</h1></div>}
-//   </NumberContext.Consumer>
-
-
-//   );
-// }
-// export default App
-
-
-//==============================================================================================
-
-//CONTEXT API EXAMPLE JISKE COMPONENT COMA COMB COMC BANE HUYE HAIN AUR APP.JS SE DATA DIRECT
-//KAISE CONTEXT API KE THROUGH JAAYEGA DIYA HUA HAI AUR ISI ME PROPS KA EXAMPLE BHI INCLUDE HAI
-        
-
-
-
-
-import React,{createContext} from 'react'
-import ComA from './ComA'
-
-const FirstName = createContext()
-const LastName = createContext()
-
-function  App(){
-
-  return(
-    <div>
-      <FirstName.Provider value ={'Aradhya'}>
-        <LastName.Provider value={'Kumar Gautam'}>
-            <ComA/>  
-        </LastName.Provider>
-      </FirstName.Provider>
-
-      
-    </div>
-  );
+                    </Routes>
+                </BrowserRouter>
+            </div>
+            </div>
+            );
 }
 export default App;
-export {FirstName,LastName}
-
-
-
-
-
